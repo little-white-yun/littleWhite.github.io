@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html >
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="little-white" />
+
+
+
+<meta name="description" content="C3新标签,box-shadow,border-image,background-size等">
+<meta name="keywords" content="边框背景,过渡及2D转换">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS3之边框背景,过渡及2D转换">
+<meta property="og:url" content="http://yoursite.com/2017/05/04/CSS3之边框背景,过渡及2D转换/index.html">
+<meta property="og:site_name" content="little-white">
+<meta property="og:description" content="C3新标签,box-shadow,border-image,background-size等">
+<meta property="og:image" content="http://yoursite.com/2017/05/04/CSS3之边框背景,过渡及2D转换/1493906857368.png">
+<meta property="og:updated_time" content="2017-06-30T05:21:11.760Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS3之边框背景,过渡及2D转换">
+<meta name="twitter:description" content="C3新标签,box-shadow,border-image,background-size等">
+<meta name="twitter:image" content="http://yoursite.com/2017/05/04/CSS3之边框背景,过渡及2D转换/1493906857368.png">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="little-white" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>CSS3之边框背景,过渡及2D转换 | little-white</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">little-white</a></h1>
+        </hgroup>
+
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>Menu</li>
+                        <li>Tags</li>
+                        
+                        <li>Friends</li>
+                        
+                        
+                        <li>About Me</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/categories/">分类云</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/little-white-yun" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/3D转换/">3D转换</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ajax请求中跨域问题的解决方案/">Ajax请求中跨域问题的解决方案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular-JS/">Angular JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap-栅格系统/">Bootstrap 栅格系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Buffer对象/">Buffer对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C3动画/">C3动画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canvas/">Canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canvas-绘制图片/">Canvas 绘制图片</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canvas-绘制文本-文本对齐方式/">Canvas 绘制文本  文本对齐方式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canvas-路径相关的概念-渐变色线段的绘制/">Canvas 路径相关的概念 渐变色线段的绘制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Clib-Flexible弹性布局方案/">Clib-Flexible弹性布局方案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EventEmitter/">EventEmitter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5新标签/">H5新标签</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP服务器/">HTTP服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Object-defineProperty/">Object.defineProperty</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vi编辑器/">Vi编辑器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WAMPServer软件/">WAMPServer软件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML-JSON/">XML,JSON</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/proto/">_ _proto_ _</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bash命令介绍/">bash命令介绍</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/forEach-map/">forEach() map()</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fs模块/">fs模块</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git命令简介/">git命令简介</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javacript/">javacript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery方法请求/">jquery方法请求</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/process模块/">process模块</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/setTimeou-如何提升网站的服务效率/">setTimeou 如何提升网站的服务效率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yelee原型链/">yelee原型链</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数/">函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数调用模式/">函数调用模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动画/">动画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/历史记录-本地存储-拖拽/">历史记录 本地存储 拖拽</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原型/">原型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基于事件驱动的回调/">基于事件驱动的回调</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基本类型和引用类型-事件总结-事件冒泡/">基本类型和引用类型 事件总结 事件冒泡</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/字体-图标/">字体 图标</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/客户机与服务器概念/">客户机与服务器概念</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/属性-事件操作/">属性/事件操作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工厂模式-寄生模式/">工厂模式 寄生模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据类型转换-in的用法-delete-对象的动态特性-异常等介绍/">数据类型转换 in的用法 delete,对象的动态特性,异常等介绍</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/样式操作/">样式操作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模板引擎-定义模板/">模板引擎 定义模板</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/沙箱模式/">沙箱模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器兼容性探测技术/">浏览器兼容性探测技术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏连等运算/">浏连等运算</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/混入式继承-原型继承-混入式-原型继承-经典继承/">混入式继承 原型继承 混入式+原型继承 经典继承</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/瀑布流/">瀑布流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/版本控制/">版本控制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/移动端网页布局-流式布局-精灵图的缩放-background-size/">移动端网页布局 流式布局 精灵图的缩放 background-size</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自定义构造函数/">自定义构造函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/节点操作/">节点操作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/边框背景-过渡及2D转换/">边框背景,过渡及2D转换</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/过滤器/">过滤器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/递归作用域-变量声明提升/">递归作用域  变量声明提升</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/闭包/">闭包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面向对象的三大特性/">面向对象的三大特性</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/默认出现滚动条-解决苹果手机滑动很卡的情况-touch-事件/">默认出现滚动条 解决苹果手机滑动很卡的情况 touch 事件</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://github.com/little-white-yun">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端的小白</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">little-white</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">little-white</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/categories/">分类云</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/little-white-yun" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+</nav>
+      <div class="body-wrap"><article id="post-CSS3之边框背景,过渡及2D转换" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/05/04/CSS3之边框背景,过渡及2D转换/" class="article-date">
+      <time datetime="2017-05-04T09:21:41.000Z" itemprop="datePublished">2017-05-04</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CSS3之边框背景,过渡及2D转换
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/CSS3/">CSS3</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/边框背景-过渡及2D转换/">边框背景,过渡及2D转换</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <ul>
+<li>C3新标签,box-shadow,border-image,background-size等<a id="more"></a>
+<h2 id="边框阴影-box-shadow"><a href="#边框阴影-box-shadow" class="headerlink" title="边框阴影 box-shadow"></a>边框阴影 box-shadow</h2></li>
+<li>四个参数:<br>box-shadow : x轴方向的偏移 , y轴方向的偏移 , 阴影模糊度 , 颜色  ;<br>例如: box-shadow : 3px 3px 5px #ccc   // 边框向x轴偏移3px,y轴偏移3px,模糊度为5px,颜色为灰色</li>
+<li>五个参数 :<br>box-shadow : x轴方向的偏移 , y轴方向的偏移 , 阴影模糊度 , 延伸阴影的大小 , 颜色 ;</li>
+<li>六个参数 :<br>box-shadow : 内阴影( inset ) , x轴方向的偏移 , y轴方向的偏移 , 阴影模糊度 , 延伸阴影的大小 , 颜色 ;<br>注: 若是需要加多个阴影,则可以直接逗号隔开即可;</li>
+</ul>
+<h2 id="边框背景图片-border-image"><a href="#边框背景图片-border-image" class="headerlink" title="边框背景图片 border-image"></a>边框背景图片 border-image</h2><ul>
+<li>资源地址: border-image-source : url( “地址” );</li>
+<li>裁剪的尺寸: border-image-slice :  数值 数值 数值 数值; ( 没有单位 ,同样遵循 上  右  下  左 )</li>
+<li>边框的宽度: border-image-width : 像素值;  </li>
+<li>平铺方式: border-image-repeat : 参数;<ul>
+<li>stretch —– 指定用拉伸方式来填充边框背景</li>
+<li>repeat  —– 从中心平铺方式来填充,图片碰到边界时,若是超过则被截断</li>
+<li>round —– 平铺方式,图片会根据边框尺寸自适应调整图片大小</li>
+</ul>
+</li>
+</ul>
+<h2 id="背景大小-background-size"><a href="#背景大小-background-size" class="headerlink" title="背景大小 background-size"></a>背景大小 background-size</h2><ul>
+<li>参数一: 数值 <ul>
+<li>background-size : 数值 数值;  指定背景图片的大小</li>
+</ul>
+</li>
+<li>参数二: 百分比<ul>
+<li>background-size ：百分比  </li>
+</ul>
+</li>
+<li>参数三: auto <ul>
+<li>图片的真实大小</li>
+</ul>
+</li>
+<li>参数四 : cover <ul>
+<li>图片等比缩放到盒子内( 以盒子的最大边为比例缩放 ), 超出盒子部分隐藏,</li>
+</ul>
+</li>
+<li>参数五：contain<ul>
+<li>图片依据最窄边为比例等比缩放,可能会存在图片不及盒子大的情况 </li>
+</ul>
+</li>
+</ul>
+<h2 id="背景显示-background-origin"><a href="#背景显示-background-origin" class="headerlink" title="背景显示 background-origin"></a>背景显示 background-origin</h2><ul>
+<li>参数一 : padding - box<ul>
+<li>background-origin : padding - box;   // 从padding区域开始显示背景。</li>
+</ul>
+</li>
+<li>参数二 :  content - box<ul>
+<li>background-origin :　content-box;  // 从内容区域开始显示背景</li>
+</ul>
+</li>
+<li>参数三 : border - box<ul>
+<li>background-origin : border-box ;   //从边框区域开始显示背景</li>
+</ul>
+</li>
+</ul>
+<h4 id="渐变色"><a href="#渐变色" class="headerlink" title="渐变色"></a>渐变色</h4><h2 id="linear-gradient-线性渐变"><a href="#linear-gradient-线性渐变" class="headerlink" title="linear - gradient 线性渐变"></a>linear - gradient 线性渐变</h2><ul>
+<li>background - image : linear-gradient ( to 渐变的方向 , 起始的颜色 , 结束的颜色 )</li>
+<li>渐变的方向:<ul>
+<li>方向值: top  bottom  right  left</li>
+<li>角度: deg  如果是正的角度 , 顺时针; 如果是负的角度 , 逆时针; ( 0deg 朝上的方向 )<br>注:<br><img src="./1493906857368.png" alt="Alt text"></li>
+</ul>
+</li>
+<li>可以通过百分比设置渐变长度</li>
+<li>依据高的长度,通过百分比先写出一个小格的样式,由于背景平铺可产生图2的效果</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">background-image: linear-gradient(</div><div class="line">	45deg,    //45度</div><div class="line">	yellow 0%,</div><div class="line">	yellow 25%,   //黄色部分</div><div class="line">	blue 25%,</div><div class="line">	blue 50%,     // 蓝色部分</div><div class="line">	yellow 50%,</div><div class="line">	yellow 75%,</div><div class="line">	blue 75%,</div><div class="line">	blue 100%</div><div class="line">);        // 一个小格部分</div><div class="line">background-size: 100px 100px;   // 设置背景的宽高,默认平铺</div><div class="line">//background-repeat: no-repeat;</div></pre></td></tr></table></figure>
+<h2 id="radial-gradient-径向渐变"><a href="#radial-gradient-径向渐变" class="headerlink" title="radial - gradient  径向渐变"></a>radial - gradient  径向渐变</h2><ul>
+<li>background - image : radial - gradient ( 辐射半径 , 中心点的位置 , 起始颜色 , 结束颜色 )</li>
+<li>中心点的位置是以盒子自身为参照</li>
+<li>例如: background - image : radial - gradient( 150px at center center , yellow , green );</li>
+</ul>
+<h2 id="过渡属性-transition"><a href="#过渡属性-transition" class="headerlink" title="过渡属性  transition"></a>过渡属性  transition</h2><ul>
+<li>如果加上过渡属性, 具备了做补间动画的能力</li>
+<li>只要属性状态发生改变,就能触发过渡,产生动画</li>
+<li>第一个参数: all  所有属性都具备了过渡的能力</li>
+<li>第二个参数: 过渡的时间,单位: 秒 s</li>
+<li><strong>transition : all 3s; </strong></li>
+<li>当需要为属性单独设置过渡事件和过渡样式的时候,可通过逗号间隔,在逗号后面直接书写</li>
+<li><p>拆分写法:</p>
+<ul>
+<li>transition-property : all ;   过渡的属性</li>
+<li>transition - duration : 4s;   过渡的时长</li>
+<li>transition - timing- function : 参数;    过渡的速度</li>
+</ul>
+<ol>
+<li>linear 匀速</li>
+<li>ease 先快后慢  默认的速度</li>
+<li>ease - in 先慢后快</li>
+<li>ease- out 先快后慢</li>
+<li>坐标变换( 贝塞尔曲线 )</li>
+</ol>
+<ul>
+<li>transition - delay : 2s;  过渡的延时</li>
+</ul>
+</li>
+<li><p>组合写法:</p>
+<ul>
+<li>transition : 属性 时间  过渡的速度  过渡的延时时间 ;</li>
+<li>例如: </li>
+</ul>
+</li>
+</ul>
+<p>transition: all 5s ease-in 1s;<br>// 等价于<br>transition - property:all;       // 全部元素过渡<br>transition - duration ：4s;       // 持续时间4秒<br>transition - timing - function : ease-in;      //过渡速度 先快后慢<br>transition - delay : 2s;          // 过渡延时2秒</p>
+<h2 id="2D转换-transform"><a href="#2D转换-transform" class="headerlink" title="2D转换 transform"></a>2D转换 transform</h2><h3 id="转换的中心点-transform-origin"><a href="#转换的中心点-transform-origin" class="headerlink" title="转换的中心点 transform - origin"></a>转换的中心点 transform - origin</h3><ul>
+<li>中心点是一个默认的转换原点</li>
+</ul>
+<h3 id="缩放-scale"><a href="#缩放-scale" class="headerlink" title="缩放 scale ( )"></a>缩放 scale ( )</h3><ul>
+<li>一个参数<ul>
+<li>代表整体缩放的倍数,比1大 —– 放大; 比1小 —– 缩小</li>
+</ul>
+</li>
+<li>两个参数<ul>
+<li>transform : scale( x 轴方向的缩放 , y轴方向的缩放 );  </li>
+</ul>
+</li>
+</ul>
+<h3 id="旋转-rotate"><a href="#旋转-rotate" class="headerlink" title="旋转 rotate( )"></a>旋转 rotate( )</h3><ul>
+<li>一个参数</li>
+<li>transform : rotate( 旋转的角度 )  单位deg;　</li>
+<li>如果是正角度,那么是顺时针旋转</li>
+<li>如果是负角度,那么是逆时针旋转</li>
+</ul>
+<h3 id="移动-translate"><a href="#移动-translate" class="headerlink" title="移动 translate( )"></a>移动 translate( )</h3><ul>
+<li>两个参数</li>
+<li>transform ：translate( x轴方向的位移 , y轴方向的位移 );</li>
+<li>注: 元素的位移,是基于元素的最后位置进行位移</li>
+<li><strong>与旋转在一起使用,则要注意先写坐标,再旋转.</strong> 如果先旋转,那么坐标轴也发生旋转</li>
+</ul>
+<h3 id="倾斜-skew"><a href="#倾斜-skew" class="headerlink" title="倾斜 skew( )"></a>倾斜 skew( )</h3><ul>
+<li>两个参数</li>
+<li>transform : skew( x轴方向倾斜的角度, y轴方向倾斜的角度 )<blockquote>
+<p>注意;<br>x轴方向的倾斜, 如果角度是正的,则是逆时针,反之,角度是负的,就是顺时针<br>y轴方向的倾斜,如果角度是正的,则是顺时针,反之,如果角度是负的,则是逆时针<br>设置倾斜度的时候,一般是只设置一个值,另一个为0deg , 不建议同时设置两个倾斜度</p>
+<!--more--></blockquote>
+</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="/2017/05/04/CSS3之边框背景,过渡及2D转换/">CSS3之边框背景,过渡及2D转换</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">little-white</a></p>
+        <p><span>Created:</span>2017-05-04, 17:21:41</p>
+        <p><span>Updated:</span>2017-06-30, 13:21:11</p>
+        <p>
+            <span>Full URL:</span><a class="post-url" href="/2017/05/04/CSS3之边框背景,过渡及2D转换/" title="CSS3之边框背景,过渡及2D转换">http://yoursite.com/2017/05/04/CSS3之边框背景,过渡及2D转换/</a>
+            <span class="copy-path" data-clipboard-text="From http://yoursite.com/2017/05/04/CSS3之边框背景,过渡及2D转换/　　By little-white" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2017/05/04/C3之边框背景,过渡及2D转换/">
+                    CSS3之边框背景,过渡及2D转换
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/04/26/H5新标签/">
+                    H5新标签
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#边框阴影-box-shadow"><span class="toc-number">1.</span> <span class="toc-text">边框阴影 box-shadow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#边框背景图片-border-image"><span class="toc-number">2.</span> <span class="toc-text">边框背景图片 border-image</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#背景大小-background-size"><span class="toc-number">3.</span> <span class="toc-text">背景大小 background-size</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#背景显示-background-origin"><span class="toc-number">4.</span> <span class="toc-text">背景显示 background-origin</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#渐变色"><span class="toc-number">4.0.1.</span> <span class="toc-text">渐变色</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#linear-gradient-线性渐变"><span class="toc-number">5.</span> <span class="toc-text">linear - gradient 线性渐变</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#radial-gradient-径向渐变"><span class="toc-number">6.</span> <span class="toc-text">radial - gradient  径向渐变</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#过渡属性-transition"><span class="toc-number">7.</span> <span class="toc-text">过渡属性  transition</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2D转换-transform"><span class="toc-number">8.</span> <span class="toc-text">2D转换 transform</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#转换的中心点-transform-origin"><span class="toc-number">8.1.</span> <span class="toc-text">转换的中心点 transform - origin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缩放-scale"><span class="toc-number">8.2.</span> <span class="toc-text">缩放 scale ( )</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#旋转-rotate"><span class="toc-number">8.3.</span> <span class="toc-text">旋转 rotate( )</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#移动-translate"><span class="toc-number">8.4.</span> <span class="toc-text">移动 translate( )</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#倾斜-skew"><span class="toc-number">8.5.</span> <span class="toc-text">倾斜 skew( )</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-5 i,
+        .toc-level-5 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+
+    <script>
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"CSS3之边框背景,过渡及2D转换　| little-white　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/05/04/C3之边框背景,过渡及2D转换/" title="Pre: CSS3之边框背景,过渡及2D转换">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/04/26/H5新标签/" title="Next: H5新标签">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/06/29/jQuery插件之 jquery.cookie/">jQuery插件之 jquery.cookie</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/29/AngularJS之表达式/">AngularJS之表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/29/AngularJS之过滤器/">AngularJS之过滤器</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/29/jQuery插件之 jquery.form/">jQuery插件之 jquery.form</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/29/AngularJS之AngularJS指令/">AngularJS之AngularJS指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/29/Ajax请求中跨域问题的解决方案/">Ajax请求中跨域问题的解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/29/AngularJS之基本概念/">AngularJS之基本概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/28/Node.js之EventEmitter/">Node.js之EventEmitter</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/28/项目案例之WAMPServer软件/">项目案例之WAMPServer软件</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/28/Node.js之fs模块/">Node.js之fs模块</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/28/Node.js之Buffer对象/">Node.js之Buffer对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/27/Node.js之process模块/">Node.js之process模块</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/26/Node.js之基于事件驱动的回调/">Node.js之基于事件驱动的回调</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/26/Node.js之HTTP服务器/">Node.js之HTTP服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/23/版本控制/">版本控制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/23/Vi编辑器/">Vi编辑器</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/23/bash命令介绍/">bash命令介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/git命令简介/">git命令简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/伸缩布局之lib-Flexible弹性布局方案/">伸缩布局之lib-Flexible弹性布局方案</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/HTML5之Canvas绘制图片/">HTML5之Canvas绘制图片</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/13/HTML5之Canvas绘制文本/">HTML5之Canvas绘制文本</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/10/HTML5之Canvas/">HTML5之Canvas</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/10/HTML5之Canvas补充路径渐变色等/">HTML5之Canvas补充路径,渐变色等</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/08/项目案例之浏览器兼容性探测技术/">项目案例之浏览器兼容性探测技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/08/javaScript之创建对象的两种方式/">javaScript之创建对象的两种方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/08/javaScript之连等运算/">javaScript之连等运算</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/07/javaScript之函数调用模式/">javaScript之函数调用模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/07/javaScript之Object.defineProperty/">javaScript之Object.defineProperty</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/07/javaScript之forEach()与map()/">javaScript之forEach()与map()</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/06/javaScript之沙箱模式/">javaScript之沙箱模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/05/项目案例之setTimeou与如何提升网站的服务效率/">项目案例之setTimeou与如何提升网站的服务效率</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/05/javaScript之闭包/">javaScript之闭包</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/03/javaScript之递归作用域,变量声明提升/">javaScript之递归作用域,变量声明提升</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/02/javaScript之原型链/">javaScript之原型链</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/02/javaScript之函数/">javaScript之函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/02/javaScript之函数综合总结/">javaScript之函数综合总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/javaScript之继承的实现方式/">javaScript之继承的实现方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/javaScript之proto/">javaScript之_ _proto_ _</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/javaScript之自定义构造函数/">javaScript之自定义构造函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/javaScript之原型/">javaScript之原型</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/javaScript之面向对象的三大特性/">javaScript之面向对象的三大特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/29/javaScript之数据类型转换/">javaScript之数据类型转换 in的用法等</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/25/项目案例之瀑布流布局/">项目案例之瀑布流布局</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/23/项目案例之模板引擎/">项目案例之模板引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/22/Ajax之jquery方法请求/">Ajax之jquery方法请求</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/22/XML,JSON/">XML,JSON</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/21/Ajax之客户机与服务器概念/">Ajax之客户机与服务器概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/20/php之文件导入形式/">php之文件导入形式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/19/表单提交,上传文件,超全局变量/">php之表单提交,上传文件,超全局变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/19/php/">php</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/15/伸缩布局之Bootstrap/">伸缩布局之Bootstrap</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/11/BUG解决类默认出现滚动条,苹果手机滑动很卡/">BUG解决类默认出现滚动条,苹果手机滑动很卡</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/10/伸缩布局之移动端网页布局/">伸缩布局之移动端网页布局</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/09/javaScript之变量,作用域,事件总结/">javaScript之变量,作用域,事件总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/08/H5新标签之历史记录,本地存储,拖拽/">H5新标签之历史记录,本地存储,拖拽等</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/07/伸缩布局之字体图标/">伸缩布局类之字体/图标</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/05/CSS3之3D转换/">CSS3之3D转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/05/CSS3之C3动画/">CSS3之C3动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/04/C3之边框背景,过渡及2D转换/">CSS3之边框背景,过渡及2D转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/04/CSS3之边框背景,过渡及2D转换/">CSS3之边框背景,过渡及2D转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/H5新标签/">H5新标签</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/jQuery之属性事件操作/">jQuery之属性/事件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/22/jQuery之动画/">jQuery之动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/22/jQuery之样式操作/">jQuery之样式操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/22/样式操作/">jQuery之样式操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/22/节点操作/">jQuery之节点操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/22/jQuery之节点操作/">jQuery之节点操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/14/require/">模块化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/14/javascript之模块化/">javascript之模块化</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2017 little-white
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

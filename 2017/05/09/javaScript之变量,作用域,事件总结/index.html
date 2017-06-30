@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html >
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="little-white" />
+
+
+
+<meta name="description" content="基本类型和引用类型 事件总结 事件冒泡 跨浏览器的事件处理程序等">
+<meta name="keywords" content="基本类型和引用类型 事件总结 事件冒泡">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javaScript之变量,作用域,事件总结">
+<meta property="og:url" content="http://yoursite.com/2017/05/09/javaScript之变量,作用域,事件总结/index.html">
+<meta property="og:site_name" content="little-white">
+<meta property="og:description" content="基本类型和引用类型 事件总结 事件冒泡 跨浏览器的事件处理程序等">
+<meta property="og:updated_time" content="2017-06-30T05:25:26.632Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javaScript之变量,作用域,事件总结">
+<meta name="twitter:description" content="基本类型和引用类型 事件总结 事件冒泡 跨浏览器的事件处理程序等">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="little-white" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>javaScript之变量,作用域,事件总结 | little-white</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">little-white</a></h1>
+        </hgroup>
+
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>Menu</li>
+                        <li>Tags</li>
+                        
+                        <li>Friends</li>
+                        
+                        
+                        <li>About Me</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/categories/">分类云</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/little-white-yun" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/3D转换/">3D转换</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ajax请求中跨域问题的解决方案/">Ajax请求中跨域问题的解决方案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular-JS/">Angular JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap-栅格系统/">Bootstrap 栅格系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Buffer对象/">Buffer对象</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C3动画/">C3动画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canvas/">Canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canvas-绘制图片/">Canvas 绘制图片</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canvas-绘制文本-文本对齐方式/">Canvas 绘制文本  文本对齐方式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canvas-路径相关的概念-渐变色线段的绘制/">Canvas 路径相关的概念 渐变色线段的绘制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Clib-Flexible弹性布局方案/">Clib-Flexible弹性布局方案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EventEmitter/">EventEmitter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5新标签/">H5新标签</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP服务器/">HTTP服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Object-defineProperty/">Object.defineProperty</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vi编辑器/">Vi编辑器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WAMPServer软件/">WAMPServer软件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML-JSON/">XML,JSON</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/proto/">_ _proto_ _</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bash命令介绍/">bash命令介绍</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/forEach-map/">forEach() map()</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fs模块/">fs模块</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git命令简介/">git命令简介</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javacript/">javacript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery方法请求/">jquery方法请求</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/process模块/">process模块</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/setTimeou-如何提升网站的服务效率/">setTimeou 如何提升网站的服务效率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yelee原型链/">yelee原型链</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数/">函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数调用模式/">函数调用模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动画/">动画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/历史记录-本地存储-拖拽/">历史记录 本地存储 拖拽</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原型/">原型</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基于事件驱动的回调/">基于事件驱动的回调</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基本类型和引用类型-事件总结-事件冒泡/">基本类型和引用类型 事件总结 事件冒泡</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/字体-图标/">字体 图标</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/客户机与服务器概念/">客户机与服务器概念</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/属性-事件操作/">属性/事件操作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工厂模式-寄生模式/">工厂模式 寄生模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据类型转换-in的用法-delete-对象的动态特性-异常等介绍/">数据类型转换 in的用法 delete,对象的动态特性,异常等介绍</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/样式操作/">样式操作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模板引擎-定义模板/">模板引擎 定义模板</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/沙箱模式/">沙箱模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器兼容性探测技术/">浏览器兼容性探测技术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏连等运算/">浏连等运算</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/混入式继承-原型继承-混入式-原型继承-经典继承/">混入式继承 原型继承 混入式+原型继承 经典继承</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/瀑布流/">瀑布流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/版本控制/">版本控制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/移动端网页布局-流式布局-精灵图的缩放-background-size/">移动端网页布局 流式布局 精灵图的缩放 background-size</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自定义构造函数/">自定义构造函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/节点操作/">节点操作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/边框背景-过渡及2D转换/">边框背景,过渡及2D转换</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/过滤器/">过滤器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/递归作用域-变量声明提升/">递归作用域  变量声明提升</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/闭包/">闭包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面向对象的三大特性/">面向对象的三大特性</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/默认出现滚动条-解决苹果手机滑动很卡的情况-touch-事件/">默认出现滚动条 解决苹果手机滑动很卡的情况 touch 事件</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://github.com/little-white-yun">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端的小白</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">little-white</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">little-white</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/categories/">分类云</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/little-white-yun" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+</nav>
+      <div class="body-wrap"><article id="post-javaScript之变量,作用域,事件总结" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/05/09/javaScript之变量,作用域,事件总结/" class="article-date">
+      <time datetime="2017-05-09T13:22:12.000Z" itemprop="datePublished">2017-05-09</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      javaScript之变量,作用域,事件总结
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/javaScript/">javaScript</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基本类型和引用类型-事件总结-事件冒泡/">基本类型和引用类型 事件总结 事件冒泡</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <ul>
+<li>基本类型和引用类型 事件总结 事件冒泡 跨浏览器的事件处理程序等<a id="more"></a>
+<h1 id="基本类型和引用类型"><a href="#基本类型和引用类型" class="headerlink" title="基本类型和引用类型"></a>基本类型和引用类型</h1><h2 id="基本类型值"><a href="#基本类型值" class="headerlink" title="基本类型值"></a>基本类型值</h2></li>
+<li>基本类型值:简单的数据段<ul>
+<li>按值访问,所以可以操作保存在变量中的实际的值.</li>
+<li>例如: <code>undefined \ Null \ Number \ String</code> </li>
+</ul>
+</li>
+<li>传递基本类型的值时: 被传递的值会被赋值给一个<strong>局部变量</strong> <h2 id="引用类型值"><a href="#引用类型值" class="headerlink" title="引用类型值"></a>引用类型值</h2></li>
+<li>引用类型值: 多个值构成的对象<ul>
+<li>引用类型的值是保存在<strong>内存中</strong>的对象,JS中是不能直接操作对象的内存空间,操作对象时,实际上是在操作对象的引用而不是实际的对象.所以,<strong>引用类型的值是按引用访问的</strong></li>
+<li>例如:<br><code>var person = new Object();</code><br><code>person.name = &quot;Nicholas&quot;;</code></li>
+</ul>
+</li>
+<li>传递引用类型的值时,会把这个值<strong>在内存中的地址</strong>赋值给一个<strong>局部变量</strong>,这个局部变量的变化<em>**</em> </li>
+</ul>
+<h1 id="事件总结"><a href="#事件总结" class="headerlink" title="事件总结"></a>事件总结</h1><h2 id="事件流"><a href="#事件流" class="headerlink" title="事件流"></a>事件流</h2><ul>
+<li>从页面中接收事件的顺序</li>
+<li>IE的事件流是事件冒泡</li>
+<li>Netscape的事件流是事件捕获</li>
+</ul>
+<h2 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h2><ul>
+<li>事件开始时由最具体的元素接收,然后逐级向上传播到较为不具体的节点</li>
+</ul>
+<h2 id="事件捕获"><a href="#事件捕获" class="headerlink" title="事件捕获"></a>事件捕获</h2><ul>
+<li>不太具体的节点应该更早的接收到事件,二最具体的节点应该最后接收到事件.</li>
+<li>用意在于在事件犯法预定目标之前捕获它</li>
+</ul>
+<p><br></p>
+<h2 id="DOM0级事件处理程序"><a href="#DOM0级事件处理程序" class="headerlink" title="DOM0级事件处理程序"></a><strong>DOM0</strong>级事件处理程序</h2><ul>
+<li>将一个函数赋值给一个事件处理程序属性</li>
+<li>例如: 为按钮绑定一个点击事件 <code>btn.onclick = function(){ }</code></li>
+<li><strong>其事件处理程序会在所属元素的作用域内运行</strong></li>
+</ul>
+<p><br></p>
+<h2 id="DOM2级事件处理程序"><a href="#DOM2级事件处理程序" class="headerlink" title="DOM2级事件处理程序"></a><strong>DOM2</strong>级事件处理程序</h2><ul>
+<li>定义了两个方法, <code>addEventListener()</code> 和<code>removeEventListener()</code> </li>
+<li><strong>addEventListener(事件名,事件函数,布尔值)</strong><ul>
+<li>用于处理指定程序的操作</li>
+</ul>
+<ul>
+<li><strong>事件名</strong>: 要绑定的事件类型: click / mouseover / mouseout ………</li>
+<li><strong>事件函数</strong>: 为其添加的事件函数名  </li>
+<li><strong>布尔值</strong>: 支持冒泡(false)  /  支持捕获 (true)</li>
+<li>[注意];1. 大多数情况下,都是讲事件处理程序添加到事件流的冒泡阶段,这样可以最大限度地兼容各种浏览器.</li>
+<li>[注意]: 2. 通过这个方法添加的事件,只能通过removeEventListener 来移除事件</li>
+<li>[注意]: 3. 通过这个方法添加的匿名函数将无法移出\</li>
+</ul>
+</li>
+<li><strong>removeEventListener(事件名,事件函数,布尔值)</strong><ul>
+<li>用于删除指定程序的操作 所传参数必须与addEventListener参数相同    </li>
+<li><strong>事件名</strong>: 要绑定的事件类型: click / mouseover / mouseout ………</li>
+<li><strong>事件函数</strong>: 为其添加的事件函数名  </li>
+<li><strong>布尔值</strong>: 支持冒泡(false)  /  支持捕获 (true)<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var btn = document.getElementById(&quot;btn&quot;);</div><div class="line">var hander = function()&#123;</div><div class="line"> alert(this.id);</div><div class="line">&#125;</div><div class="line">// 添加事件</div><div class="line">btn.addEventListener(&quot;click&quot;,hander,false);</div><div class="line">// 删除事件</div><div class="line">btn.removeEventListener(&quot;click&quot;,hander,false);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<h2 id="IE事件处理程序"><a href="#IE事件处理程序" class="headerlink" title="#IE事件处理程序"></a>#IE事件处理程序</h2><ul>
+<li>实现了与DOM中类似的方法: <code>attachEvent()</code>和<code>detachEvent()</code></li>
+<li><p><strong>attachEvent(事件名,事件函数)</strong> </p>
+<ul>
+<li><strong>第一个事件名应该是onclick 注意与addEventListener()区分</strong> </li>
+<li>由于IE8及更早的版本只支持事件冒泡,所以通过attachEvent()添加的事件处理程序都会被添加到冒泡阶段</li>
+<li>事件处理程序会在全局作用域中运行.因此this = window</li>
+<li>对于同一个按钮多次添加attachEvent()方法,即添加多个事件处理程序,但是,<strong>是以相反的顺序被触发</strong></li>
+<li>同样,匿名函数无法删除</li>
+</ul>
+</li>
+<li><p><strong>detachEvent(事件名,事件函数)</strong></p>
+<ul>
+<li>删除attachEvent添加的函数,必须提供相同的参数</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var btn = document.getElementById(&quot;mybtn&quot;);</div><div class="line">var handler = function()&#123;</div><div class="line">	alert(&quot;Clicked&quot;);</div><div class="line">&#125;</div><div class="line">//添加事件</div><div class="line">btn.attachEvent(&quot;onclick&quot;,handler);</div><div class="line">//删除事件</div><div class="line">btn.detachEvent(&quot;onclick&quot;,handler);</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>补充:  attachEvent() 与 DOM0级方法主要区别在与事件处理程序的作用域;</strong></p>
+</blockquote>
+<p><br></p>
+<h2 id="跨浏览器的事件处理程序"><a href="#跨浏览器的事件处理程序" class="headerlink" title="跨浏览器的事件处理程序"></a>跨浏览器的事件处理程序</h2><ul>
+<li>要保证处理事件的代码能在大多数浏览器下一致地运行,只需要关注冒泡阶段</li>
+<li>创建的方法为<strong><code>addHander()</code></strong>和<strong><code>removeHander()</code></strong></li>
+<li><strong>addHandler(要操作的元素,事件名称,事件处理程序函数) —– 添加事件</strong><ul>
+<li>主要的职责是视情况分别使用DOM0级方法,DOM2级方法或IE方法来添加事件</li>
+<li>该方法属于<strong>EventUtil</strong>对象,见书P354</li>
+</ul>
+</li>
+<li><strong>removeHandler —– 删除事件</strong><ul>
+<li>同样接收相同参数</li>
+</ul>
+</li>
+</ul>
+<h3 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h3><!--more-->
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="/2017/05/09/javaScript之变量,作用域,事件总结/">javaScript之变量,作用域,事件总结</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">little-white</a></p>
+        <p><span>Created:</span>2017-05-09, 21:22:12</p>
+        <p><span>Updated:</span>2017-06-30, 13:25:26</p>
+        <p>
+            <span>Full URL:</span><a class="post-url" href="/2017/05/09/javaScript之变量,作用域,事件总结/" title="javaScript之变量,作用域,事件总结">http://yoursite.com/2017/05/09/javaScript之变量,作用域,事件总结/</a>
+            <span class="copy-path" data-clipboard-text="From http://yoursite.com/2017/05/09/javaScript之变量,作用域,事件总结/　　By little-white" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2017/05/10/伸缩布局之移动端网页布局/">
+                    伸缩布局之移动端网页布局
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/05/08/H5新标签之历史记录,本地存储,拖拽/">
+                    H5新标签之历史记录,本地存储,拖拽等
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基本类型和引用类型"><span class="toc-number">1.</span> <span class="toc-text">基本类型和引用类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本类型值"><span class="toc-number">1.1.</span> <span class="toc-text">基本类型值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#引用类型值"><span class="toc-number">1.2.</span> <span class="toc-text">引用类型值</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#事件总结"><span class="toc-number">2.</span> <span class="toc-text">事件总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#事件流"><span class="toc-number">2.1.</span> <span class="toc-text">事件流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件冒泡"><span class="toc-number">2.2.</span> <span class="toc-text">事件冒泡</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件捕获"><span class="toc-number">2.3.</span> <span class="toc-text">事件捕获</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DOM0级事件处理程序"><span class="toc-number">2.4.</span> <span class="toc-text">DOM0级事件处理程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DOM2级事件处理程序"><span class="toc-number">2.5.</span> <span class="toc-text">DOM2级事件处理程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IE事件处理程序"><span class="toc-number">2.6.</span> <span class="toc-text">#IE事件处理程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#跨浏览器的事件处理程序"><span class="toc-number">2.7.</span> <span class="toc-text">跨浏览器的事件处理程序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#事件对象"><span class="toc-number">2.7.1.</span> <span class="toc-text">事件对象</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-5 i,
+        .toc-level-5 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+
+    <script>
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"javaScript之变量,作用域,事件总结　| little-white　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/05/10/伸缩布局之移动端网页布局/" title="Pre: 伸缩布局之移动端网页布局">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/05/08/H5新标签之历史记录,本地存储,拖拽/" title="Next: H5新标签之历史记录,本地存储,拖拽等">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/06/29/jQuery插件之 jquery.cookie/">jQuery插件之 jquery.cookie</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/29/AngularJS之表达式/">AngularJS之表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/29/AngularJS之过滤器/">AngularJS之过滤器</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/29/jQuery插件之 jquery.form/">jQuery插件之 jquery.form</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/29/AngularJS之AngularJS指令/">AngularJS之AngularJS指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/29/Ajax请求中跨域问题的解决方案/">Ajax请求中跨域问题的解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/29/AngularJS之基本概念/">AngularJS之基本概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/28/Node.js之EventEmitter/">Node.js之EventEmitter</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/28/项目案例之WAMPServer软件/">项目案例之WAMPServer软件</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/28/Node.js之fs模块/">Node.js之fs模块</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/28/Node.js之Buffer对象/">Node.js之Buffer对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/27/Node.js之process模块/">Node.js之process模块</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/26/Node.js之基于事件驱动的回调/">Node.js之基于事件驱动的回调</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/26/Node.js之HTTP服务器/">Node.js之HTTP服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/23/版本控制/">版本控制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/23/Vi编辑器/">Vi编辑器</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/23/bash命令介绍/">bash命令介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/git命令简介/">git命令简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/伸缩布局之lib-Flexible弹性布局方案/">伸缩布局之lib-Flexible弹性布局方案</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/HTML5之Canvas绘制图片/">HTML5之Canvas绘制图片</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/13/HTML5之Canvas绘制文本/">HTML5之Canvas绘制文本</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/10/HTML5之Canvas/">HTML5之Canvas</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/10/HTML5之Canvas补充路径渐变色等/">HTML5之Canvas补充路径,渐变色等</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/08/项目案例之浏览器兼容性探测技术/">项目案例之浏览器兼容性探测技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/08/javaScript之创建对象的两种方式/">javaScript之创建对象的两种方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/08/javaScript之连等运算/">javaScript之连等运算</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/07/javaScript之函数调用模式/">javaScript之函数调用模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/07/javaScript之Object.defineProperty/">javaScript之Object.defineProperty</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/07/javaScript之forEach()与map()/">javaScript之forEach()与map()</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/06/javaScript之沙箱模式/">javaScript之沙箱模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/05/项目案例之setTimeou与如何提升网站的服务效率/">项目案例之setTimeou与如何提升网站的服务效率</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/05/javaScript之闭包/">javaScript之闭包</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/03/javaScript之递归作用域,变量声明提升/">javaScript之递归作用域,变量声明提升</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/02/javaScript之原型链/">javaScript之原型链</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/02/javaScript之函数/">javaScript之函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/02/javaScript之函数综合总结/">javaScript之函数综合总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/javaScript之继承的实现方式/">javaScript之继承的实现方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/javaScript之proto/">javaScript之_ _proto_ _</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/javaScript之自定义构造函数/">javaScript之自定义构造函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/javaScript之原型/">javaScript之原型</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/01/javaScript之面向对象的三大特性/">javaScript之面向对象的三大特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/29/javaScript之数据类型转换/">javaScript之数据类型转换 in的用法等</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/25/项目案例之瀑布流布局/">项目案例之瀑布流布局</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/23/项目案例之模板引擎/">项目案例之模板引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/22/Ajax之jquery方法请求/">Ajax之jquery方法请求</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/22/XML,JSON/">XML,JSON</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/21/Ajax之客户机与服务器概念/">Ajax之客户机与服务器概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/20/php之文件导入形式/">php之文件导入形式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/19/表单提交,上传文件,超全局变量/">php之表单提交,上传文件,超全局变量</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/19/php/">php</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/15/伸缩布局之Bootstrap/">伸缩布局之Bootstrap</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/11/BUG解决类默认出现滚动条,苹果手机滑动很卡/">BUG解决类默认出现滚动条,苹果手机滑动很卡</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/10/伸缩布局之移动端网页布局/">伸缩布局之移动端网页布局</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/09/javaScript之变量,作用域,事件总结/">javaScript之变量,作用域,事件总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/08/H5新标签之历史记录,本地存储,拖拽/">H5新标签之历史记录,本地存储,拖拽等</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/07/伸缩布局之字体图标/">伸缩布局类之字体/图标</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/05/CSS3之3D转换/">CSS3之3D转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/05/CSS3之C3动画/">CSS3之C3动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/04/C3之边框背景,过渡及2D转换/">CSS3之边框背景,过渡及2D转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/04/CSS3之边框背景,过渡及2D转换/">CSS3之边框背景,过渡及2D转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/26/H5新标签/">H5新标签</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/jQuery之属性事件操作/">jQuery之属性/事件操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/22/jQuery之动画/">jQuery之动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/22/jQuery之样式操作/">jQuery之样式操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/22/样式操作/">jQuery之样式操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/22/节点操作/">jQuery之节点操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/22/jQuery之节点操作/">jQuery之节点操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/14/require/">模块化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/14/javascript之模块化/">javascript之模块化</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2017 little-white
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
